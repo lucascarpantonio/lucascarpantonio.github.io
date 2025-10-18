@@ -1,0 +1,13 @@
+theme: jekyll-theme-slate
+title: "Luca Scarpantonio"
+description: "Python Developer | Data Science & QA Digitalization"
+show_downloads: false
+
+# Links (menu in alto)
+navigation:
+  - name: Home
+    link: /
+  - name: Projects
+    link: /projects
+  - name: About
+    link: /about
