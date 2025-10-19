@@ -3,7 +3,7 @@ name: Deploy Chirpy Jekyll site
 on:
   push:
     branches:
-      - main  # pubblica solo quando fai push su main
+      - main
   workflow_dispatch:
 
 permissions:
@@ -25,12 +25,13 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'  # compatibile con GitHub Pages
-          bundler-cache: true
+          ruby-version: '3.2'  # 🔧 stabile per Chirpy e GitHub Pages
+          bundler-cache: false  # disabilitiamo cache perché 3.1.7 ha bug
 
-      - name: Install dependencies
+      - name: Install Bundler manually
         run: |
-          bundle install
+          gem install bundler -v "~>2.5"
+          bundle _2.5.0_ install
 
       - name: Build site with Jekyll
         run: bundle exec jekyll build
