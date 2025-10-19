@@ -1,0 +1,50 @@
+name: Update Projects from GitHub
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # esegue ogni giorno alle 6:00 del mattino
+  workflow_dispatch:     # puoi avviarlo anche manualmente
+  push:
+    branches:
+      - drafts
+
+jobs:
+  update-projects:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del sito
+        uses: actions/checkout@v3
+
+      - name: Recupera i repo GitHub con branch 'blog'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🔍 Ricerca progetti con branch 'blog'..."
+          mkdir -p _data/tmp_projects
+          curl -s -H "Authorization: token $GH_TOKEN" \
+          https://api.github.com/users/lucascarpantonio/repos?per_page=100 \
+          | jq -r '.[].name' > repos.txt
+
+          while read repo; do
+            has_blog=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              https://api.github.com/repos/lucascarpantonio/$repo/branches \
+              | jq -r '.[].name' | grep -x "blog" || true)
+            if [ "$has_blog" == "blog" ]; then
+              echo "✅ Trovato $repo con branch blog"
+              curl -s -H "Authorization: token $GH_TOKEN" \
+                https://raw.githubusercontent.com/lucascarpantonio/$repo/blog/metadata.yml \
+                -o "_data/tmp_projects/$repo.yml"
+            fi
+          done < repos.txt
+
+          echo "---" > _data/projects.yml
+          cat _data/tmp_projects/*.yml >> _data/projects.yml || true
+
+      - name: Commit aggiornamento
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add _data/projects.yml || true
+          git commit -m "Aggiornamento automatico dei progetti da GitHub" || echo "Nessuna modifica"
+          git push origin drafts
