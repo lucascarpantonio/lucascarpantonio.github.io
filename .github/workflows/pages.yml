@@ -31,7 +31,7 @@ jobs:
       - name: Install Bundler manually
         run: |
           gem install bundler -v "~>2.5"
-          bundle _2.5.0_ install
+          bundle install
 
       - name: Build site with Jekyll
         run: bundle exec jekyll build
