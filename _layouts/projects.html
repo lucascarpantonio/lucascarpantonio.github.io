@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {% if page.url %}
+    <p><a href="{{ page.url }}" target="_blank" rel="noopener">🔗 View repository on GitHub</a></p>
+    {% endif %}
+  </div>
+</article>

@@ -26,5 +26,13 @@ In questa sezione aggiungo periodicamente mini-progetti o notebook dedicati a:
 - Script di automazione QA e monitoraggio
 - Piccoli studi di *Machine Learning* e *Data Visualization*
 
+{% for project in site.projects %}
+  <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+  <p>{{ project.content | strip_html | truncate: 180 }}</p>
+  <hr>
+{% endfor %}
+
 📬 **Suggerimento:** se vuoi restare aggiornato sui prossimi progetti, seguimi su  
 [GitHub](https://github.com/lucascarpantonio) 💻 o [LinkedIn](https://www.linkedin.com/in/lucascarpantonio/) 🌐
+
+
