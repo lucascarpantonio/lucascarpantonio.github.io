@@ -1,0 +1,55 @@
+name: Update Published Projects
+
+on:
+  schedule:
+    - cron: "0 8 * * *"  # esegui ogni giorno alle 8
+  workflow_dispatch:      # esecuzione manuale dal tab Actions
+
+jobs:
+  update-projects:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch repositories with 'blog' branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p _data/tmp_projects
+          echo "🔍 Ricerca repository di lucascarpantonio con branch 'blog'..."
+          curl -s -H "Authorization: token $GH_TOKEN" \
+            https://api.github.com/users/lucascarpantonio/repos?per_page=100 \
+          | jq -r '.[].name' | while read repo; do
+              if curl -sf -H "Authorization: token $GH_TOKEN" \
+                https://api.github.com/repos/lucascarpantonio/$repo/branches/blog >/dev/null; then
+                echo "✅ Trovato branch blog in $repo"
+                curl -sf -H "Authorization: token $GH_TOKEN" \
+                  https://raw.githubusercontent.com/lucascarpantonio/$repo/blog/metadata.yml \
+                  -o "_data/tmp_projects/${repo}.yml" || echo "⚠️ Nessun metadata.yml per $repo"
+              else
+                echo "❌ Nessun branch blog per $repo"
+              fi
+            done
+
+      - name: Merge all metadata into _data/projects.yml
+        run: |
+          mkdir -p _data
+          if ls _data/tmp_projects/*.yml 1> /dev/null 2>&1; then
+            echo "---" > _data/projects.yml
+            cat _data/tmp_projects/*.yml >> _data/projects.yml
+            echo "🎉 File _data/projects.yml aggiornato con successo!"
+          else
+            echo "---" > _data/projects.yml
+            echo "# Nessun progetto trovato con branch 'blog'" >> _data/projects.yml
+            echo "⚠️ Nessun progetto trovato, file projects.yml vuoto."
+          fi
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/projects.yml || echo "Nessun file da aggiungere"
+          git commit -m "🤖 Update project list automatically" || echo "Nessuna modifica da committare"
+          git push origin draft || echo "⚠️ Nessuna modifica da pushare"
