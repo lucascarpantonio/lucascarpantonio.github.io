@@ -1,0 +1,15 @@
+- name: Home
+  path: /
+  icon: fas fa-home
+
+- name: Projects
+  path: /tabs/projects
+  icon: fas fa-folder-open
+
+- name: About Me
+  path: /tabs/about
+  icon: fas fa-user
+
+- name: Posts
+  path: /tabs/posts
+  icon: fas fa-pen

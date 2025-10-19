@@ -1,13 +1,28 @@
-theme: jekyll-theme-slate
-title: "Luca Scarpantonio"
-description: "Python Developer | Data Science & QA Digitalization"
-show_downloads: false
+title: Luca Scarpantonio
+tagline: Data Science | Python | QA Digitalization
+description: Portfolio & Blog — un percorso di crescita nel mondo dei dati e dell'automazione
+url: "https://lucascarpantonio.github.io"
 
-# Links (menu in alto)
-navigation:
-  - name: Home
-    link: /
-  - name: Projects
-    link: /projects
-  - name: About
-    link: /about
+github:
+  username: lucascarpantonio
+social:
+  name: Luca Scarpantonio
+  links:
+    - https://github.com/lucascarpantonio
+    - https://www.linkedin.com/in/lucascarpantonio/
+
+theme_mode: dark
+lang: it
+timezone: Europe/Rome
+theme: jekyll-theme-chirpy
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+footer:
+  custom_text: >
+    © 2025 Luca Scarpantonio — Powered by Jekyll & Chirpy
+    
+future: true

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4001/intro/2025/10/17/welcome.html</loc>
+<lastmod>2025-10-17T11:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/tabs/about.html</loc>
+<lastmod>2025-10-19T15:12:49+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/tabs/posts.html</loc>
+<lastmod>2025-10-19T15:12:49+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/tabs/projects.html</loc>
+<lastmod>2025-10-19T15:12:49+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/</loc>
+</url>
+</urlset>
