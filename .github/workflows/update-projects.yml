@@ -1,9 +1,12 @@
-name: Update Published Projects
+name: Update Projects List
 
 on:
   schedule:
-    - cron: "0 8 * * *"  # esegui ogni giorno alle 8
-  workflow_dispatch:      # esecuzione manuale dal tab Actions
+    - cron: "0 8 * * 1"   # ogni lunedì alle 8:00
+  workflow_dispatch:      # o manualmente
+  push:
+    branches:
+      - draft             # si aggiorna quando modifichi il draft
 
 jobs:
   update-projects:
@@ -13,43 +16,74 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fetch repositories with 'blog' branch
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          mkdir -p _data/tmp_projects
-          echo "🔍 Ricerca repository di lucascarpantonio con branch 'blog'..."
-          curl -s -H "Authorization: token $GH_TOKEN" \
-            https://api.github.com/users/lucascarpantonio/repos?per_page=100 \
-          | jq -r '.[].name' | while read repo; do
-              if curl -sf -H "Authorization: token $GH_TOKEN" \
-                https://api.github.com/repos/lucascarpantonio/$repo/branches/blog >/dev/null; then
-                echo "✅ Trovato branch blog in $repo"
-                curl -sf -H "Authorization: token $GH_TOKEN" \
-                  https://raw.githubusercontent.com/lucascarpantonio/$repo/blog/metadata.yml \
-                  -o "_data/tmp_projects/${repo}.yml" || echo "⚠️ Nessun metadata.yml per $repo"
-              else
-                echo "❌ Nessun branch blog per $repo"
-              fi
-            done
+      - name: Fetch repositories with branch 'blog'
+        id: fetch_repos
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const repos = await github.rest.repos.listForUser({
+              username: 'lucascarpantonio',
+              per_page: 100
+            });
 
-      - name: Merge all metadata into _data/projects.yml
-        run: |
-          mkdir -p _data
-          if ls _data/tmp_projects/*.yml 1> /dev/null 2>&1; then
-            echo "---" > _data/projects.yml
-            cat _data/tmp_projects/*.yml >> _data/projects.yml
-            echo "🎉 File _data/projects.yml aggiornato con successo!"
-          else
-            echo "---" > _data/projects.yml
-            echo "# Nessun progetto trovato con branch 'blog'" >> _data/projects.yml
-            echo "⚠️ Nessun progetto trovato, file projects.yml vuoto."
-          fi
+            const selected = [];
 
-      - name: Commit and push updates
+            for (const repo of repos.data) {
+              try {
+                // Verifica se il branch "blog" esiste
+                await github.rest.repos.getBranch({
+                  owner: repo.owner.login,
+                  repo: repo.name,
+                  branch: 'blog'
+                });
+
+                // Recupera README
+                const readme = await github.rest.repos.getReadme({
+                  owner: repo.owner.login,
+                  repo: repo.name
+                });
+
+                const decoded = Buffer.from(readme.data.content, 'base64').toString('utf8');
+                const summary = decoded.split('\n').slice(0, 5).join(' ');
+
+                selected.push({
+                  name: repo.name,
+                  html_url: repo.html_url,
+                  summary: summary
+                });
+
+              } catch (err) {
+                // ignora i repo senza branch blog
+              }
+            }
+
+            const fs = require('fs');
+            let md = `---
+layout: page
+title: Projects
+icon: fas fa-folder-open
+order: 2
+---
+
+# Projects
+
+Benvenuto nella sezione **Projects** 👋  
+Qui raccolgo i progetti pubblici collegati al mio percorso in *Data Science, Python e automazione dei processi QA*.
+
+---
+
+`;
+
+            for (const r of selected) {
+              md += `### [${r.name}](${r.html_url})\n\n${r.summary}\n\n---\n`;
+            }
+
+            fs.writeFileSync('_tabs/projects.md', md);
+
+      - name: Commit updated projects.md
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add _data/projects.yml || echo "Nessun file da aggiungere"
-          git commit -m "🤖 Update project list automatically" || echo "Nessuna modifica da committare"
-          git push origin draft || echo "⚠️ Nessuna modifica da pushare"
+          git add _tabs/projects.md
+          git commit -m "Auto-update project list from GitHub" || echo "No changes to commit"
+          git push
