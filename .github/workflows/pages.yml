@@ -1,8 +1,9 @@
-name: Build & Deploy Chirpy Site
+name: Deploy Chirpy Jekyll site
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -17,19 +18,28 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # compatibile con Jekyll e Chirpy
+          ruby-version: 3.1
           bundler-cache: true
+
       - name: Install dependencies
         run: |
-          bundle install
-      - name: Build site
+          gem install bundler
+          bundle install --retry 3
+
+      - name: Build Jekyll site
         run: |
-          bundle exec jekyll build -d ./_site
-      - uses: actions/upload-pages-artifact@v3
+          bundle exec jekyll build --trace --destination ./_site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
@@ -39,6 +49,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
