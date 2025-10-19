@@ -11,12 +11,30 @@ Ogni progetto è pensato per esplorare nuovi strumenti, migliorare le competenze
 
 ---
 
-### 🏙 Venice Airbnb Analysis
-**Analisi dei prezzi e dei fattori che influenzano gli affitti brevi a Venezia.**  
-Un progetto di *data exploration* e *feature analysis* che utilizza `pandas`, `numpy`, `matplotlib` e `seaborn` per indagare pattern di prezzo, stagionalità e recensioni.
+## 🚀 Progetti principali
 
-- 📂 [Repository su GitHub](https://github.com/scarpl/venice-airbnb)
-- 📖 [Approfondimento nel blog](../posts/2025-10-18-welcome) _(se vuoi aggiungere un articolo correlato)_
+{% assign sorted_projects = site.projects | sort: "title" %}
+{% for project in sorted_projects %}
+  <div class="project-entry" style="margin-bottom: 1.5rem;">
+    <h3>
+      <a href="{{ project.url }}" target="_blank">
+        {{ project.title }}
+      </a>
+    </h3>
+    {% if project.description %}
+      <p>{{ project.description }}</p>
+    {% endif %}
+    {% if project.tags %}
+      <p>
+        {% for tag in project.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </p>
+    {% endif %}
+    <a href="{{ project.url }}" class="btn btn-outline-primary" target="_blank">🔗 View on GitHub</a>
+    <hr>
+  </div>
+{% endfor %}
 
 ---
 
@@ -27,23 +45,6 @@ In questa sezione aggiungo periodicamente mini-progetti o notebook dedicati a:
 - Piccoli studi di *Machine Learning* e *Data Visualization*
 
 ---
-layout: page
-title: Projects
-icon: fas fa-lightbulb
-order: 3
----
-
-<h2>Projects 🚀</h2>
-
-{% for project in site.projects %}
-  <div class="project-entry">
-    <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
-    <p>{{ project.description }}</p>
-    <hr>
-  </div>
-{% endfor %}
 
 📬 **Suggerimento:** se vuoi restare aggiornato sui prossimi progetti, seguimi su  
 [GitHub](https://github.com/lucascarpantonio) 💻 o [LinkedIn](https://www.linkedin.com/in/lucascarpantonio/) 🌐
-
-
