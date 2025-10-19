@@ -1,23 +1,23 @@
 source "https://rubygems.org"
 
-# Specifica la versione minima di Ruby supportata
-ruby "3.1.0"
+# Compatibilità con la versione usata da GitHub Actions
+ruby "3.3.0"
 
-# Jekyll principale
 gem "jekyll", "~> 4.3"
-
-# Tema Chirpy
 gem "jekyll-theme-chirpy", "~> 6.3"
 
-# Plugin standard supportati da GitHub Pages
+# Plugin comuni supportati da GitHub Pages
 gem "jekyll-feed", "~> 0.17"
 gem "jekyll-seo-tag", "~> 2.8"
-
-# Necessario per lanciare il server in locale
+gem "jekyll-paginate"
+gem "jekyll-sitemap"
+gem "jekyll-archives"
 gem "webrick"
+gem "kramdown-parser-gfm"
 
-# Build ottimizzata
+# Fix per build remote su GitHub Actions
 group :jekyll_plugins do
-  gem "jekyll-paginate"
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
 end
