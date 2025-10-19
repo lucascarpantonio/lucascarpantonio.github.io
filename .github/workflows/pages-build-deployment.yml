@@ -5,3 +5,8 @@
   repo: https://github.com/lucascarpantonio/
   description: Questo file sarà aggiornato automaticamente con i tuoi progetti che hanno il branch 'blog'.
   tags: [example, template]
+
+  on:
+  push:
+    branches:
+      - main
