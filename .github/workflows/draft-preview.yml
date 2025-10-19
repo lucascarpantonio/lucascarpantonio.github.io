@@ -1,0 +1,52 @@
+name: Deploy Draft Preview (Chirpy)
+
+on:
+  push:
+    branches:
+      - draft
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "draft"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.9"
+
+      - name: Install Bundler manually
+        run: |
+          gem install bundler -v "~>2.5"
+          bundle install
+
+      - name: Build site with Jekyll
+        run: |
+          bundle exec jekyll build -d ./_site/draft-preview
+
+      - name: Upload artifact for draft deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site/draft-preview
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: draft-preview
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages (Draft)
+        id: deployment
+        uses: actions/deploy-pages@v4
