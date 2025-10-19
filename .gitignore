@@ -1,0 +1,64 @@
+# ==========================
+# Jekyll & Chirpy standard
+# ==========================
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.jekyll-cache/
+.bundle/
+vendor/
+tmp/
+cache/
+.sass-cache/
+
+# ==========================
+# Build & dependencies
+# ==========================
+Gemfile.lock
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================
+# VS Code & IDE files
+# ==========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ==========================
+# OS generated files
+# ==========================
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# ==========================
+# Temporary or personal
+# ==========================
+*.log
+*.tmp
+*.swp
+*.bak
+*.orig
+*.old
+
+# ==========================
+# Python notebooks / analysis (in caso tu aggiunga link diretti)
+# ==========================
+*.ipynb_checkpoints
+__pycache__/
+.env
+.venv/
+
+# ==========================
+# Custom workflow exclusions
+# ==========================
+# File temporanei di test GitHub Actions
+*.local.yml
+test-*.yml
+draft-preview/
