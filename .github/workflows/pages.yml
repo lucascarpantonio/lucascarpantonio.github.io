@@ -1,0 +1,49 @@
+name: Build & Deploy (Jekyll / Chirpy)
+
+on:
+  push:
+    branches: [ main ]     # build a ogni push su main
+  workflow_dispatch:        # esecuzione manuale dal tab Actions
+
+permissions:
+  contents: read            # necessario per leggere il repo
+  pages: write              # necessario per pubblicare su Pages
+  id-token: write           # necessario per l'auth OIDC del deploy
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Compila il sito Jekyll (Chirpy è un tema-gemma: va benissimo così)
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
