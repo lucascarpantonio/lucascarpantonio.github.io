@@ -2,62 +2,51 @@ name: Update Published Projects
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [update_project]
 
 jobs:
   update-projects:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout blog repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.BLOG_TRIGGER_TOKEN }}
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Git
+      - name: Setup project metadata
+        id: metadata
+        run: |
+          # Default fallback if payload is missing
+          TITLE="${{ github.event.client_payload.title || 'Untitled Project' }}"
+          REPO_URL="${{ github.event.client_payload.repo_url || 'https://github.com/' }}"
+          DESCRIPTION="${{ github.event.client_payload.description || 'No description provided.' }}"
+          TAGS="${{ github.event.client_payload.tags || 'python' }}"
+          FILENAME=$(basename "${REPO_URL}")
+          FILEPATH="_projects/${FILENAME}.md"
+
+          echo "Creating markdown file for project: $TITLE"
+          echo "Path: $FILEPATH"
+
+          cat > "$FILEPATH" <<EOF
+---
+layout: project
+title: "$TITLE"
+url: "$REPO_URL"
+description: "$DESCRIPTION"
+tags: [${TAGS}]
+---
+
+$DESCRIPTION
+
+🔗 [View the repository on GitHub]($REPO_URL)
+EOF
+
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Download project metadata files
-        run: |
-          mkdir -p _projects
-          gh repo list lucascarpantonio --json name,url,defaultBranchRef --limit 50 > repos.json
-          for repo in $(jq -r '.[].name' repos.json); do
-            if gh api repos/lucascarpantonio/$repo/branches/blog --silent >/dev/null 2>&1; then
-              echo "Fetching metadata from $repo"
-              gh api repos/lucascarpantonio/$repo/contents/metadata.yml?ref=blog \
-                --jq '.content' | base64 --decode > _projects/${repo}.yml
-            fi
-          done
-        env:
-          GH_TOKEN: ${{ secrets.BLOG_TRIGGER_TOKEN }}
-
-      - name: Convert YAML metadata to Markdown
-        run: |
-          for yml in _projects/*.yml; do
-            name=$(basename "$yml" .yml)
-            title=$(yq '.project.title' "$yml")
-            description=$(yq '.project.description' "$yml")
-            url=$(yq '.project.url' "$yml")
-            echo "---" > "_projects/${name}.md"
-            echo "title: \"$title\"" >> "_projects/${name}.md"
-            echo "url: $url" >> "_projects/${name}.md"
-            echo "layout: project" >> "_projects/${name}.md"
-            echo "---" >> "_projects/${name}.md"
-            echo "" >> "_projects/${name}.md"
-            echo "$description" >> "_projects/${name}.md"
-            rm "$yml"
-          done
-
-      - name: Commit and push updates
-        run: |
           git add _projects/
-          if git diff --cached --quiet; then
-            echo "No project updates found."
-          else
-            git commit -m "Auto-update published projects"
-            git push origin main
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.BLOG_TRIGGER_TOKEN }}
+          git commit -m "Add or update project metadata file"
+          git push origin main
