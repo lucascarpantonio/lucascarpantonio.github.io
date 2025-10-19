@@ -4,7 +4,10 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [update_project]
-
+permissions:
+  contents: write
+  actions: read
+  
 jobs:
   update-projects:
     runs-on: ubuntu-latest
