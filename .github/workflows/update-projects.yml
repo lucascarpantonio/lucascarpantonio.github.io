@@ -17,41 +17,53 @@ jobs:
       - name: Get repositories with topic 'showcase'
         id: repos
         run: |
-          echo "Fetching repositories for user lucascarpantonio..."
+          echo "Fetching repositories with topic 'showcase' for user lucascarpantonio..."
           curl -s -H "Accept: application/vnd.github+json" \
-            https://api.github.com/users/lucascarpantonio/repos?per_page=100 \
-            | jq -r '.[] | select(.topics | index("showcase")) | [.name, .html_url, .description, (.topics | join(", "))] | @tsv' > repos.tsv
+            "https://api.github.com/search/repositories?q=user:lucascarpantonio+topic:showcase&per_page=100" \
+            | jq -r '.items[] | [.name, .html_url, (.description // ""), ((.topics // []) | join(", "))] | @tsv' > repos.tsv
 
-          cat repos.tsv
+          echo "---- repos.tsv ----"
+          cat repos.tsv || true
+          echo "-------------------"
 
       - name: Generate _projects entries
         run: |
           mkdir -p _projects
           while IFS=$'\t' read -r name url description topics; do
+            [ -z "$name" ] && continue
+
             filename="_projects/${name}.md"
             echo "Creating $filename"
-            cat <<'EOF' > "$filename"
----
-layout: project
-title: "${name}"
-url: "${url}"
-description: "${description}"
-tags: [${topics}]
----
 
-${description}
+            # Escape double quotes in YAML fields
+            desc_escaped=${description//\"/\\\"}
 
-🔗 [View repository on GitHub](${url})
-EOF
+            {
+              echo '---'
+              echo 'layout: project'
+              printf 'title: "%s"\n' "$name"
+              printf 'url: "%s"\n' "$url"
+              printf 'description: "%s"\n' "$desc_escaped"
+              if [ -n "$topics" ]; then
+                printf 'tags: [%s]\n' "$topics"
+              else
+                echo 'tags: []'
+              fi
+              echo '---'
+              echo
+              printf '%s\n\n' "$description"
+              printf '🔗 [View repository on GitHub](%s)\n' "$url"
+            } > "$filename"
           done < repos.tsv
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add _projects/
           if git diff --cached --quiet; then
-            echo "✅ No changes to commit."
+            echo "✅ No new projects to commit."
           else
             git commit -m "Update project list from GitHub API"
             git push origin main
