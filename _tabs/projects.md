@@ -26,10 +26,21 @@ In questa sezione aggiungo periodicamente mini-progetti o notebook dedicati a:
 - Script di automazione QA e monitoraggio
 - Piccoli studi di *Machine Learning* e *Data Visualization*
 
+---
+layout: page
+title: Projects
+icon: fas fa-lightbulb
+order: 3
+---
+
+<h2>Projects 🚀</h2>
+
 {% for project in site.projects %}
-  <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-  <p>{{ project.content | strip_html | truncate: 180 }}</p>
-  <hr>
+  <div class="project-entry">
+    <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+    <p>{{ project.description }}</p>
+    <hr>
+  </div>
 {% endfor %}
 
 📬 **Suggerimento:** se vuoi restare aggiornato sui prossimi progetti, seguimi su  
