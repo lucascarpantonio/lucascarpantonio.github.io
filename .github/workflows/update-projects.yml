@@ -30,7 +30,7 @@ jobs:
           while IFS=$'\t' read -r name url description topics; do
             filename="_projects/${name}.md"
             echo "Creating $filename"
-            cat > "$filename" <<EOF
+            cat <<'EOF' > "$filename"
 ---
 layout: project
 title: "${name}"
