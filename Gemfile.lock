@@ -103,9 +103,17 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.3)
-  jekyll-feed
+  jekyll-archives
+  jekyll-feed (~> 0.17)
+  jekyll-paginate
+  jekyll-seo-tag (~> 2.8)
   jekyll-sitemap
   jekyll-theme-chirpy (~> 6.3)
+  kramdown-parser-gfm
+  webrick
+
+RUBY VERSION
+   ruby 3.3.0p0
 
 BUNDLED WITH
    2.7.2
