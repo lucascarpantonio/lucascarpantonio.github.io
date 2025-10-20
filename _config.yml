@@ -22,6 +22,8 @@ collections:
     sort_by: order
   projects:
     output: true
+    sort_by: title
+    permalink: /:collection/:name
 
 defaults:
   - scope:
