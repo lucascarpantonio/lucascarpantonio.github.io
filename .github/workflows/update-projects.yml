@@ -23,10 +23,10 @@ jobs:
 
           # Richiesta API REST — restituisce tutti i repo dell'utente
           curl -s -H "Authorization: token $GITHUB_TOKEN" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/users/$USERNAME/repos?per_page=100" \
+          -H "Accept: application/vnd.github.mercy-preview+json" \
+          "https://api.github.com/users/$USERNAME/repos?per_page=100&type=owner&sort=updated"\
             | jq -r '.[] | select(.topics | index("showcase")) | [.name, .html_url, .description, (.topics | join(","))] | @tsv' \
-            > repos.tsv
+            > repos.tsv || echo "" > repos.tsv
 
           echo "Repositories found:"
           cat repos.tsv || echo "Nessun repository trovato con topic showcase"
