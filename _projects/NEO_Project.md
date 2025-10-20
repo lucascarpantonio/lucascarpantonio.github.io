@@ -6,6 +6,4 @@ description: "NEO_Project"
 tags: [showcase]
 ---
 
-NEO_Project
-
-🔗 [View repository on GitHub](https://github.com/lucascarpantonio/NEO_Project)
+🔗 [View on GitHub](https://github.com/lucascarpantonio/NEO_Project)
