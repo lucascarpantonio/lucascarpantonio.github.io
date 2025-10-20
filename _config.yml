@@ -20,6 +20,16 @@ collections:
   tabs:
     output: true
     sort_by: order
+  projects:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+      author: Luca Scarpantonio
 
 footer:
   custom_text: >
