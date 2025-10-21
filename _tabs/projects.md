@@ -15,23 +15,28 @@ Ogni progetto è pensato per esplorare nuovi strumenti, migliorare le competenze
 
 {% assign sorted_projects = site.projects | sort: "title" %}
 {% for project in sorted_projects %}
-  <div class="project-entry" style="margin-bottom: 1.5rem;">
+  <div class="project-entry" style="margin-bottom: 2.5rem;">
     <h3>
-      <a href="{{ project.url }}" target="_blank">
-        {{ project.title }}
-      </a>
+      <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
     </h3>
+
     {% if project.description %}
       <p>{{ project.description }}</p>
     {% endif %}
+
     {% if project.tags %}
       <p>
         {% for tag in project.tags %}
-          <span class="tag">{{ tag }}</span>
+          <img src="https://img.shields.io/badge/{{ tag | replace: ' ', '%20' }}-{{ '555555' }}?style=flat-square&labelColor={{ '0d1117' }}&color={{ '2ea043' }}" 
+               alt="{{ tag }}" 
+               style="margin-right: 5px; border-radius: 4px;">
         {% endfor %}
       </p>
     {% endif %}
-    <a href="{{ project.url }}" class="btn btn-outline-primary" target="_blank">🔗 View on GitHub</a>
+
+    <a href="{{ project.url }}" class="btn btn-outline-primary" target="_blank">
+      🔗 View on GitHub
+    </a>
     <hr>
   </div>
 {% endfor %}
