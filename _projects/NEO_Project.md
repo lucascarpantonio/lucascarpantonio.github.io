@@ -1,8 +1,8 @@
 ---
 layout: project
-title: "Near Earth Object Project"
+title: "NEO_Project"
 url: "https://github.com/lucascarpantonio/NEO_Project"
-description: "An exploration of NASA’s Near-Earth Object data — uncovering how asteroids and comets travel through our solar neighborhood and how close they come to Earth."
+description: "NEO_Project"
 tags: [showcase]
 ---
 

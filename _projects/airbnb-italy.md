@@ -1,8 +1,8 @@
 ---
 layout: project
-title: "Venice Airbnb Market Analysis"
+title: "airbnb-italy"
 url: "https://github.com/lucascarpantonio/airbnb-italy"
-description: "A data-driven exploration of Venice’s short-term rental market, revealing how price patterns and host behavior influence the dynamics of Airbnb listings across the city."
+description: "Data from airbnb Italy"
 tags: [python , showcase]
 ---
 
