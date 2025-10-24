@@ -49,13 +49,13 @@ From exploratory analyses to automation tools, these works showcase how data can
 
 ---
 
-### 🌱 Altri esperimenti
-In questa sezione aggiungo periodicamente mini-progetti o notebook dedicati a:
-- Analisi esplorative di dataset pubblici (Kaggle, Open Data)
-- Script di automazione QA e monitoraggio
-- Piccoli studi di *Machine Learning* e *Data Visualization*
+## Other Experiments
 
----
+This section includes smaller side projects and notebooks focused on:
 
-📬 **Suggerimento:** se vuoi restare aggiornato sui prossimi progetti, seguimi su  
-[GitHub](https://github.com/lucascarpantonio) 💻 o [LinkedIn](https://www.linkedin.com/in/lucascarpantonio/) 🌐
+- Exploratory data analysis of public datasets (Kaggle, Open Data)
+- Automation and QA monitoring scripts
+- Small-scale *Machine Learning* and *Data Visualization* studies
+
+**Tip:** Stay updated on new projects by following me on  
+[GitHub](https://github.com/lucascarpantonio) or [LinkedIn](https://www.linkedin.com/in/lucascarpantonio/)
