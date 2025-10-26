@@ -21,9 +21,11 @@ From exploratory analyses to automation tools, these works showcase how data can
 
 {% assign sorted_projects = site.projects | sort: "title" %}
 {% for project in sorted_projects %}
-  <div class="project-entry" style="margin-bottom: 2.5rem;">
+  {% assign href = project.external_url | default: project.url %}
+
+  <div class="project-entry" style="margin-bottom: 1.5rem;">
     <h3>
-      <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
+      <a href="{{ href }}" target="_blank">{{ project.title }}</a>
     </h3>
 
     {% if project.description %}
@@ -33,16 +35,14 @@ From exploratory analyses to automation tools, these works showcase how data can
     {% if project.tags %}
       <p>
         {% for tag in project.tags %}
-          <img src="https://img.shields.io/badge/{{ tag | replace: ' ', '%20' }}-{{ '555555' }}?style=flat-square&labelColor={{ '0d1117' }}&color={{ '2ea043' }}" 
-               alt="{{ tag }}" 
-               style="margin-right: 5px; border-radius: 4px;">
+          <span class="tag">{{ tag }}</span>
         {% endfor %}
       </p>
     {% endif %}
 
-    <a href="{{ project.url }}" class="btn btn-outline-primary" target="_blank">
-      🔗 View on GitHub
-    </a>
+    {% if project.repo %}
+      <a href="{{ project.repo }}" class="btn btn-outline-primary" target="_blank">🔗 View on GitHub</a>
+    {% endif %}
     <hr>
   </div>
 {% endfor %}
