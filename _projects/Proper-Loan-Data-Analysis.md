@@ -16,6 +16,6 @@ Key angles explored:
 - How employment status relates to default and Chargedoff loans  
 
 The project combines univariate, bivariate and multivariate analysis to build an interpretable risk picture for consumer lending.
----
+
 
 🔗 [View on GitHub](https://github.com/lucascarpantonio/Proper-Loan-Data-Analysis)
