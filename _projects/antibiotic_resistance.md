@@ -2,7 +2,7 @@
 ---
 layout: project
 title: "Antibiotic Resistance Analysis"
-url: https://github.com/lucascarpantonio/antibiotic_resistance
+url: https://github.com/lucascarpantonio/antibiotic_resistance/blog
 repo: https://github.com/lucascarpantonio/antibiotic_resistance
 description: "Exploratory and statistical analysis of antibiotic resistance patterns across bacterial strains."
 tags: [python, eda, healthcare, showcase]
