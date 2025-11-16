@@ -16,6 +16,6 @@ In this project I:
 - Visualize close-approach events to understand how often objects come near Earth
 
 It’s a data-driven way to look at our cosmic neighborhood and make asteroid statistics more intuitive and visual.
----
+
 
 🔗 [View on GitHub](https://github.com/lucascarpantonio/NEO_Project)
