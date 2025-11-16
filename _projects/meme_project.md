@@ -16,6 +16,5 @@ The idea is to:
 - Explore how small scripts can speed up creative experiments
 
 It’s a lightweight sandbox project, useful as a playground while learning new libraries and techniques.
----
 
 🔗 [View on GitHub](https://github.com/lucascarpantonio/meme_project)
