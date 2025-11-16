@@ -16,6 +16,6 @@ The project includes:
 - Basic game logic and score tracking across multiple rounds  
 
 It’s a compact exercise focused on clean code, control flow and user interaction — a small but meaningful step in my Python learning path.
----
+
 
 🔗 [View on GitHub](https://github.com/lucascarpantonio/Rock_Paper_Scissors)
