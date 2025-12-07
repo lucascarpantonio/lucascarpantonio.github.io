@@ -7,4 +7,4 @@ description: "A first hands-on exploration of the Titanic dataset, blending pass
 tags: [python, showcase, kaggle]
 ---
 
-🔗 [View on GitHub]([https://github.com/lucascarpantonio/Kaggle_Titanic_ML.git])
+🔗 [View on GitHub](https://github.com/lucascarpantonio/Kaggle_Titanic_ML.git)
