@@ -3,40 +3,32 @@ layout: default
 title: Home
 ---
 
-# Welcome to My Data Space  
+# 👋 Benvenuto nel mio spazio dati
 
-Hi, I'm **Luca Scarpantonio** 🧠  
+Ciao, sono **Luca Scarpantonio** 👨‍💻  
+Unisco una solida esperienza nel settore farmaceutico e della qualità con una crescente passione per la **programmazione in Python** e la **Data Science**.
 
-I combine a solid background in **pharmaceutical manufacturing and quality assurance** with a growing passion for **Python programming** and **Data Science**.  
-
-In recent years, I’ve been expanding my curiosity toward **data**, **applied science**, and **quantitative analysis**.  
-This site was born to share my first steps, experiments, and reflections as I explore this fascinating field.  
-
----
-
-## What You’ll Find Here  
-
-In these pages, I gather the projects I’ve been working on in my free time:  
-
-- **Data analysis** of real-world datasets using Python, Pandas, Numpy, and Matplotlib  
-- **Machine Learning experiments** and data visualization studies  
-- **Automation tools** for improving process quality and efficiency  
-- **Practical notes and insights** from my personal journey into data-driven thinking  
-
-You won’t find perfect tutorials here—just real projects, born from curiosity and the desire to learn something new each time.
+Negli ultimi anni sto ampliando il mio interesse verso il mondo dei **dati**, della **scienza applicata** e dell’**analisi quantitativa**.  
+Questo sito nasce con l’obiettivo di condividere i miei primi passi, esperimenti e riflessioni mentre esploro questo ambito.
 
 ---
 
-## An Invitation  
+## 🎯 Cosa troverai qui
 
-If you’re also exploring the world of Data Science, I hope these pages can offer you ideas, practical examples, and maybe a bit of motivation.  
+In queste pagine raccolgo i progetti che sto sviluppando nel mio tempo libero:  
+- Analisi di dataset reali con **Python**, **pandas**, **numpy** e **matplotlib**  
+- Esperimenti di **Machine Learning** e **visualizzazione dei dati**  
+- Piccoli strumenti per l’automazione e la qualità dei processi  
+- Note e appunti pratici per chi, come me, sta costruendo un percorso nel mondo dei dati  
 
-Learning to *read data* is a journey — and this is my way of documenting it, step by step.  
-
-Take a look at the [**Projects**](../tabs/projects) section to discover my work,  
-or visit [**About**](../tabs/about) to get to know me better.  
+Non troverai tutorial perfetti, ma progetti veri, nati dalla curiosità e dal desiderio di imparare qualcosa di nuovo ogni volta.
 
 ---
 
-### ✨ Crafted with curiosity and data insight  
-© 2025 **Luca Scarpantonio** — *Data Science & Digital Transformation Portfolio*
+## 🌱 Un invito
+
+Se anche tu ti stai avvicinando alla Data Science, spero che queste pagine possano offrirti spunti, esempi concreti e magari un po’ di motivazione.  
+Imparare a “leggere” i dati è un viaggio — e questo sito è il mio modo per raccontarlo, passo dopo passo.
+
+👉 Dai un’occhiata alla sezione [**Projects**](_tabs/projects.md) per scoprire i lavori già pubblicati  
+oppure visita [**About**](./about) per conoscere meglio chi sono.
