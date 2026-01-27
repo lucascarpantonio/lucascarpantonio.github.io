@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 # Compatibilità con la versione usata da GitHub Actions
 
-ruby "~> 3.2.9"
+ruby "3.2.9"
 
 gem "jekyll", "~> 4.3"
 gem "jekyll-theme-chirpy", "~> 6.3"
