@@ -2,6 +2,7 @@ title: "Luca Scarpantonio"
 tagline: "Data Science | Python | QA Digitalization"
 description: "Portfolio & Blog — a journey through data, automation, and digital transformation."
 url: "https://lucascarpantonio.github.io"
+avatar: /assets/img/image.png
 
 github:
   username: lucascarpantonio
@@ -35,6 +36,6 @@ defaults:
 
 footer:
   custom_text: >
-    © 2025 Luca Scarpantonio
+    © 2025 Luca Scarpantonio — Powered by Jekyll & Chirpy
     
 future: true
