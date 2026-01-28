@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <loc>http://localhost:4001/projects/meme-project</loc>
 <lastmod>2025-10-24T19:28:58+02:00</lastmod>
 </url>
@@ -38,6 +39,34 @@
 <lastmod>2025-10-24T19:28:58+02:00</lastmod>
 =======
 <<<<<<< HEAD
+<loc>http://localhost:4001/tabs/about.html</loc>
+<lastmod>2025-10-19T15:39:59+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/tabs/posts.html</loc>
+<lastmod>2025-10-19T15:39:59+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/tabs/projects.html</loc>
+<<<<<<< HEAD
+<lastmod>2025-10-19T15:39:59+02:00</lastmod>
+=======
+<lastmod>2025-10-19T15:12:49+02:00</lastmod>
+=======
+<loc>https://lucascarpantonio.github.io/tabs/about.html</loc>
+<lastmod>2025-10-19T16:50:57+02:00</lastmod>
+>>>>>>> draft
+</url>
+<url>
+<loc>https://lucascarpantonio.github.io/tabs/posts.html</loc>
+<lastmod>2025-10-19T16:50:57+02:00</lastmod>
+</url>
+<url>
+<loc>https://lucascarpantonio.github.io/tabs/projects.html</loc>
+<lastmod>2025-10-19T16:50:57+02:00</lastmod>
+>>>>>>> eef7a4c... Added yml files
+>>>>>>> parent of da96e0c... Finalized the english version of website
+=======
 <loc>http://localhost:4001/tabs/about.html</loc>
 <lastmod>2025-10-19T15:39:59+02:00</lastmod>
 </url>

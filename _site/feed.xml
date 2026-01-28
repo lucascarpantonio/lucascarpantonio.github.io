@@ -3,9 +3,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"> <id>http://localhost:4001/</id> <title>Luca Scarpantonio</title> <subtitle>Portfolio &amp; Blog — un percorso di crescita nel mondo dei dati e dell'automazione</subtitle> <updated>2025-10-24T19:28:58+02:00</updated> <author> <name>Luca Scarpantonio</name> <uri>http://localhost:4001/</uri> </author> <link rel="self" type="application/atom+xml" href="http://localhost:4001/feed.xml"/> <link rel="alternate" type="text/html" hreflang="it" href="http://localhost:4001/"/> <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator> <rights> © 2025 Luca Scarpantonio </rights> <icon>/assets/img/favicons/favicon.ico</icon> <logo>/assets/img/favicons/favicon-96x96.png</logo> <entry> <title>👋 Benvenuto nel mio spazio dati</title> <link href="http://localhost:4001/intro/2025/10/17/welcome.html" rel="alternate" type="text/html" title="👋 Benvenuto nel mio spazio dati" /> <published>2025-10-17T11:00:00+02:00</published> <updated>2025-10-17T11:00:00+02:00</updated> <id>http://localhost:4001/intro/2025/10/17/welcome.html</id> <content src="http://localhost:4001/intro/2025/10/17/welcome.html" /> <author> <name>Luca Scarpantonio</name> </author> <category term="Intro" /> <summary> Ciao 👋 Questo blog nasce come diario di apprendimento nel mondo dei dati e della programmazione in Python. Qui condividerò progetti, esperimenti e riflessioni su Data Science, automazione e digitalizzazione. L’obiettivo non è mostrare solo codice, ma raccontare il percorso di chi trasforma la curiosità in competenza. </summary> </entry> </feed>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of da96e0c... Finalized the english version of website
 =======
 >>>>>>> parent of da96e0c... Finalized the english version of website
 =======
@@ -30,6 +33,9 @@ Qui condividerò progetti, esperimenti e riflessioni su Data Science, automazion
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of da96e0c... Finalized the english version of website
+=======
 >>>>>>> parent of da96e0c... Finalized the english version of website
 =======
 >>>>>>> parent of da96e0c... Finalized the english version of website
