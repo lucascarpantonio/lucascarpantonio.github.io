@@ -25,7 +25,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'  # 🔧 stabile per Chirpy e GitHub Pages
+          ruby-version: '3.2.9'  # 🔧 stabile per Chirpy e GitHub Pages
           bundler-cache: false  # disabilitiamo cache perché 3.1.7 ha bug
 
       - name: Install Bundler manually
