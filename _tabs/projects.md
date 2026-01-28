@@ -5,7 +5,7 @@ order: 2
 layout: page
 ---
 
-# Portfolio
+## Portfolio
 
 Welcome to my **Projects** space — a collection of Python and Data Science work that blends curiosity, learning, and real-world problem solving.
 
@@ -17,7 +17,7 @@ From exploratory analyses to automation tools, these works showcase how data can
 
 ---
 
-## Main Projects
+### Main Projects
 
 {% assign sorted_projects = site.projects | sort: "title" %}
 {% for project in sorted_projects %}
@@ -49,7 +49,7 @@ From exploratory analyses to automation tools, these works showcase how data can
 
 ---
 
-## Other Experiments
+### Other Experiments
 
 This section includes smaller side projects and notebooks focused on:
 
@@ -57,5 +57,5 @@ This section includes smaller side projects and notebooks focused on:
 - Automation and QA monitoring scripts
 - Small-scale *Machine Learning* and *Data Visualization* studies
 
-**Tip:** Stay updated on new projects by following me on  
-[GitHub](https://github.com/lucascarpantonio) or [LinkedIn](https://www.linkedin.com/in/lucascarpantonio/)
+**Tip:** I regularly share new experiments and project updates on [GitHub](https://github.com/lucascarpantonio).  
+You can also connect with me on [LinkedIn](https://www.linkedin.com/in/lucascarpantonio/) to follow my data journey.
