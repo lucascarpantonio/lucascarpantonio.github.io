@@ -24,7 +24,19 @@ When I’m not working with data, I’m likely experimenting with new technologi
 
 ---
 
-### 🌍 Let’s Connect
-[LinkedIn](https://www.linkedin.com/in/lucascarpantonio)  
-[GitHub](https://github.com/lucascarpantonio)  
-Or reach out directly for collaborations or project discussions.
+## Let’s Connect
+If you’d like to exchange ideas, discuss projects, or simply connect, you can find me here:
+
+<p class="connect-icons">
+  <a class="connect-link" href="https://www.linkedin.com/in/lucascarpantonio/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+    <span>LinkedIn</span>
+  </a>
+
+  <span class="connect-sep">·</span>
+
+  <a class="connect-link" href="https://github.com/lucascarpantonio" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+    <i class="fa-brands fa-github"></i>
+    <span>GitHub</span>
+  </a>
+</p>
