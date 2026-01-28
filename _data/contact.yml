@@ -1,0 +1,9 @@
+# _data/contact.yml
+
+- type: github
+  icon: "fab fa-github"
+  url: "https://github.com/lucascarpantonio"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/lucascarpantonio/"
