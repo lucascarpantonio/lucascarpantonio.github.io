@@ -5,7 +5,7 @@ order: 2
 layout: page
 ---
 
-# Projects Portfolio
+# Portfolio
 
 Welcome to my **Projects** space — a collection of Python and Data Science work that blends curiosity, learning, and real-world problem solving.
 
@@ -17,7 +17,7 @@ From exploratory analyses to automation tools, these works showcase how data can
 
 ---
 
-## Progetti principali
+## Main Projects
 
 {% assign sorted_projects = site.projects | sort: "title" %}
 {% for project in sorted_projects %}
