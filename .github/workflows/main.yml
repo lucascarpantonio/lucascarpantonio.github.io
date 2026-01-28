@@ -1,7 +1,0 @@
-
-  name: Setup Ruby
-  uses: ruby/setup-ruby@v1
-  with:
-    ruby-version: '3.2.9'   # versione esatta
-    bundler-cache: true
-    cache-version: ruby-3-2-9   # forza invalidate cache
