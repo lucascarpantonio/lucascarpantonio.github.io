@@ -190,7 +190,11 @@ RUBY VERSION
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    ruby 3.2.9
+=======
+   ruby 3.3.0p0
+>>>>>>> parent of da96e0c... Finalized the english version of website
 =======
    ruby 3.3.0p0
 >>>>>>> parent of da96e0c... Finalized the english version of website
