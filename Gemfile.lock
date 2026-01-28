@@ -187,7 +187,11 @@ DEPENDENCIES
   webrick
 
 RUBY VERSION
+<<<<<<< HEAD
    ruby 3.2.9
+=======
+   ruby 3.3.0p0
+>>>>>>> parent of da96e0c... Finalized the english version of website
 
 BUNDLED WITH
    2.7.2
