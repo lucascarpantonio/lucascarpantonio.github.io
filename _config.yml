@@ -35,6 +35,6 @@ defaults:
 
 footer:
   custom_text: >
-    © 2025 Luca Scarpantonio — Powered by Jekyll & Chirpy
+    © 2025 Luca Scarpantonio
     
 future: true
