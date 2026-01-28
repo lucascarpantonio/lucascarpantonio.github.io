@@ -1,11 +1,9 @@
 ---
-title: About
+title: About Me
 icon: fas fa-user
 order: 1
 layout: page
 ---
-
-# About Me
 
 I’m **Luca Scarpantonio** — a professional passionate about **data, analytics, and digital transformation**.  
 With a background in **Quality Assurance and Data Integrity** within the pharmaceutical industry, I’ve spent the last decade bridging the gap between technical rigor and data-driven innovation.
