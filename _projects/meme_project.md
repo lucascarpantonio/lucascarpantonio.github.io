@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "meme_project"
+title: "Meme Project"
 url: https://github.com/lucascarpantonio/meme_project
 repo: https://github.com/lucascarpantonio/meme_project
 description: "A small experimental project in Python exploring simple automation and meme-style content generation."
